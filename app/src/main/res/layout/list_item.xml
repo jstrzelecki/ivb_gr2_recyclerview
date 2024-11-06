@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+
     >
-
-    <TextView
-        android:id="@+id/sweet_name"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nazwa słodycza"
-        android:textSize="18sp"
-        android:textColor="#897306"/>
+        android:orientation="vertical"
+        android:layout_marginEnd="50dp">
 
-    <TextView
-        android:id="@+id/sweet_price"
+        <TextView
+            android:id="@+id/sweet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nazwa słodycza"
+            android:textSize="18sp"
+            android:textColor="#897306"/>
+
+        <TextView
+            android:id="@+id/sweet_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cena 0.0 PLN"
+            android:textSize="16sp"
+            android:textColor="#cbacba"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/add_to_cart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cena 0.0 PLN"
-        android:textSize="16sp"
-        android:textColor="#cbacba"
-        android:textStyle="bold"
-        />
+        android:text="Dodaj do\nkoszyka"
+        android:textSize="10sp"
+        android:layout_marginEnd="5dp"/>
+
 
 </LinearLayout>

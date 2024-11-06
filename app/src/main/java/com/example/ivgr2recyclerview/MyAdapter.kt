@@ -1,8 +1,10 @@
 package com.example.ivgr2recyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,6 +17,8 @@ class MyAdapter(
     class SweetsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sweetName: TextView = itemView.findViewById(R.id.sweet_name)
         val sweetPrice: TextView = itemView.findViewById(R.id.sweet_price)
+        val addToCartButton: Button = itemView.findViewById(R.id.add_to_cart_button)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SweetsViewHolder {
@@ -33,6 +37,10 @@ class MyAdapter(
 
         holder.itemView.setOnClickListener {
             clickListener(currentSweet)
+        }
+
+        holder.addToCartButton.setOnClickListener {
+            Log.i("add", "dodano do koszyka ${currentSweet.name}")
         }
     }
 }
