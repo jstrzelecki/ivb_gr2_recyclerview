@@ -6,7 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val sweetsList: List<Sweets>) : RecyclerView.Adapter<MyAdapter.SweetsViewHolder>(){
+class MyAdapter(
+    private val sweetsList: List<Sweets>,
+    private val clickListener: (Sweets) -> Unit,
+
+) : RecyclerView.Adapter<MyAdapter.SweetsViewHolder>(){
 
     class SweetsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sweetName: TextView = itemView.findViewById(R.id.sweet_name)
@@ -26,5 +30,9 @@ class MyAdapter(private val sweetsList: List<Sweets>) : RecyclerView.Adapter<MyA
         val currentSweet = sweetsList[position] // dane
         holder.sweetPrice.text = "Cena ${currentSweet.price}" //widok
         holder.sweetName.text = currentSweet.name
+
+        holder.itemView.setOnClickListener {
+            clickListener(currentSweet)
+        }
     }
 }

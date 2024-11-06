@@ -1,6 +1,7 @@
 package com.example.ivgr2recyclerview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,7 +30,13 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView: RecyclerView = findViewById(R.id.sweets_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MyAdapter(sweetsList)
+        recyclerView.adapter = MyAdapter(sweetsList, { sweet ->
+            Toast.makeText(
+                this,
+                "Wybrałeś: ${sweet.name} za ${sweet.price}",
+                Toast.LENGTH_LONG
+            ).show()
+        })
 
 
     }
