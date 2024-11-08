@@ -20,7 +20,7 @@ class MyAdapter(
         val sweetPrice: TextView = itemView.findViewById(R.id.sweet_price)
         val addToCartButton: Button = itemView.findViewById(R.id.add_to_cart_button)
         val favroriteButton: ImageButton = itemView.findViewById(R.id.favorite_imagebutton)
-
+        val addToCartCounter: TextView = itemView.findViewById(R.id.add_to_cart_count)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SweetsViewHolder {
@@ -43,6 +43,10 @@ class MyAdapter(
             holder.favroriteButton.setImageResource(R.drawable.favorite_border)
         }
 
+        holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCartCounter}"
+
+
+
 
         holder.itemView.setOnClickListener {
             clickListener(currentSweet)
@@ -50,6 +54,10 @@ class MyAdapter(
 
         holder.addToCartButton.setOnClickListener {
             Log.i("add", "dodano do koszyka ${currentSweet.name}")
+            currentSweet.addToCartCounter += 1
+            holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCartCounter}"
+
+
         }
 
         holder.favroriteButton.setOnClickListener {
