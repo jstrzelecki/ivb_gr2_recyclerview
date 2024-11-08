@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -18,6 +19,7 @@ class MyAdapter(
         val sweetName: TextView = itemView.findViewById(R.id.sweet_name)
         val sweetPrice: TextView = itemView.findViewById(R.id.sweet_price)
         val addToCartButton: Button = itemView.findViewById(R.id.add_to_cart_button)
+        val favroriteButton: ImageButton = itemView.findViewById(R.id.favorite_imagebutton)
 
     }
 
@@ -35,12 +37,25 @@ class MyAdapter(
         holder.sweetPrice.text = "Cena ${currentSweet.price}" //widok
         holder.sweetName.text = currentSweet.name
 
+        if(currentSweet.isFavorite){
+            holder.favroriteButton.setImageResource(R.drawable.favorite)
+        } else {
+            holder.favroriteButton.setImageResource(R.drawable.favorite_border)
+        }
+
+
         holder.itemView.setOnClickListener {
             clickListener(currentSweet)
         }
 
         holder.addToCartButton.setOnClickListener {
             Log.i("add", "dodano do koszyka ${currentSweet.name}")
+        }
+
+        holder.favroriteButton.setOnClickListener {
+            currentSweet.isFavorite = !currentSweet.isFavorite
+            notifyItemChanged(position)
+
         }
     }
 }
