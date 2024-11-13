@@ -43,7 +43,7 @@ class MyAdapter(
             holder.favroriteButton.setImageResource(R.drawable.favorite_border)
         }
 
-        holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCartCounter}"
+        holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCarCounter}"
 
 
 
@@ -54,8 +54,8 @@ class MyAdapter(
 
         holder.addToCartButton.setOnClickListener {
             Log.i("add", "dodano do koszyka ${currentSweet.name}")
-            currentSweet.addToCartCounter += 1
-            holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCartCounter}"
+            currentSweet.addToCarCounter += 1
+            holder.addToCartCounter.text ="Dodano: ${currentSweet.addToCarCounter}"
 
 
         }

@@ -42,7 +42,11 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginEnd="20dp"
         />
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
     <Button
         android:id="@+id/add_to_cart_button"
         android:layout_width="wrap_content"
@@ -50,6 +54,18 @@
         android:text="Dodaj do\nkoszyka"
         android:textSize="10sp"
         android:layout_marginEnd="5dp"/>
+    <TextView
+        android:id="@+id/add_to_cart_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodano: 0"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
+
 
 
 </LinearLayout>
