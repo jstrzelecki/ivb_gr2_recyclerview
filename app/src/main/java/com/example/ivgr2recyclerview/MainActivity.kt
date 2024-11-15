@@ -1,6 +1,8 @@
 package com.example.ivgr2recyclerview
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +38,19 @@ class MainActivity : AppCompatActivity() {
                 "Wybrałeś: ${sweet.name} za ${sweet.price}",
                 Toast.LENGTH_LONG
             ).show()
+
+        }
+
+        val saveButton: Button = findViewById(R.id.save_list_to_json_button)
+        saveButton.setOnClickListener {
+            try{
+                SweetsJsonManager.saveSweetsListToJson(
+                    this,
+                    sweetsList)
+                Toast.makeText(this, "Dane zapisano", Toast.LENGTH_LONG).show()
+            }catch(ex: Exception){
+                Log.e("save", "Coś poszło nie tak $ex")
+            }
         }
 
 
